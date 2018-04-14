@@ -1,0 +1,33 @@
+StaticModels InputFiles/StaticModels.txt
+
+Camera
+position 89 20 -6
+lookingDirection -1.0 0.03 0
+### viewDist represents distance between camera's eye position and lookAt point
+viewDist 10
+### panDist represents distance between camera's eye position and lookAt point when panning
+panDist 10
+### moveSpeed represents the speed amera moves around the environment
+moveSpeed 1
+end
+
+### Now are simulator's parameters
+
+SceneColor 0 0 0
+PlaneColor 1 1 1
+### IMPORTANT: Time step needs to be specify before particleGenerators because it is
+### use in particleGenerators' constructor. @TODO refactoring
+TimeStep 0.1
+
+###	planeDimension should be integer, representing half the side length of the ground plane.
+PlaneDimension 45
+
+ParticleGenerators InputFiles/ParticleGenerators.txt
+Obstacles InputFiles/Obstacles.txt
+
+### format: Attractor pos.x pos.y pos.z range constantStrength
+Attractor 2 30 -5 20.0 0.3
+
+### format: Repeller pos.x pos.y pos.z range constantStrength
+Repeller 10 20 2 10.0 0.3
+

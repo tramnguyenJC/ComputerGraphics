@@ -1,0 +1,11 @@
+# different choices for style: 'invisible', 'line', or 'solid'
+# specify points in order of counterclockwise or clockwise
+
+start
+Point1 45 0 -45
+Point2 45 0 45 
+Point3 -45 0 45
+Point4 -45 0 -45
+Normal 0 1 0
+style invisible
+end

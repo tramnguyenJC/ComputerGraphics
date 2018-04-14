@@ -1,0 +1,354 @@
+# For each Particle Generator, the type denotes which type the generator is (Point, Line, Circle, Beam, Fire, Firework)
+# For Point Particle Generator, input format is: 
+# type Point position <position.x> <position.y> <position.z>
+# For Line Particle Generator, input format is: 
+# type Line point1 <point1.x> <point1.y> <point1.z> point2 <point2.x> <point2.y> <point2.z> normal <normal.x> <normal.y> <normal.z>
+# For normal specification of line, (x,y,z) in [-1,1] range.
+# For Circle Particle Generator, input format is:
+# type Point center <center.x> <center.y> <center.z> radius <radius> normal <normal.x> <normal.y> <normal.z>
+# For Beam Particle Generator, input format is:
+# type Point center <center.x> <center.y> <center.z> radius <radius> normal <normal.x> <normal.y> <normal.z>
+
+start
+type Line point1 22 32 -24 point2 28 32 -29 normal 0.2 -0.5 0.3
+distribution uniform
+maxParticles 700000
+minimumLife 80
+maximumLife 90
+minNumGenerated 300
+maxNumGenerated 400
+timeIntervalGeneration 1
+elasticity 0.9
+friction 0.1
+minVel 2
+maxVel 4.2
+gravity 0 -9.8 0
+# List color in order of color transitions
+color 0.125, 0.698, 0.667
+color 0.251, 0.878, 0.816
+color 0.000, 0.808, 0.820
+color 0.000, 0.9, 0.9
+color 0.000, 1.000, 1.000
+color 0.878, 1.000, 1.000
+color 1.0 1.0 1.0
+alphaStart 0.7
+alphaEnd 1.0
+size 3.0
+mass 1.0
+end
+
+# The monster beam
+start
+type Beam center -5 13 15 radius 2 normal 0.9 0.4 -0.7
+distribution uniform
+maxParticles 10000
+minimumLife 70
+maximumLife 80
+minNumGenerated 40
+maxNumGenerated 50
+timeIntervalGeneration 1
+elasticity 0.95
+friction 0.1
+minVel 2
+maxVel 3
+gravity 0 0 0
+# List color in order of color transitions
+color 0.000 0.000 0.545
+color 0.098 0.098 0.439
+color 0.294 0.000 0.510
+color 0.000, 0.000, 0.804
+color 0.282 0.239 0.545
+color 0.416 0.353 0.804
+color 0.482 0.408 0.933
+color 0.933, 0.510, 0.933
+color 0.576, 0.439, 0.859
+alphaStart 1.0
+alphaEnd 0.7
+size 3.0
+mass 1.0
+end
+
+# THe robot's beam
+start
+type Beam center 26 28 -7 radius 2 normal -0.5 -0.3 0.3
+distribution uniform
+maxParticles 10000
+minimumLife 70
+maximumLife 90
+minNumGenerated 40
+maxNumGenerated 50
+timeIntervalGeneration 1
+elasticity 0.95
+friction 0.1
+minVel 2
+maxVel 3
+gravity 0 0 0
+# List color in order of color transitions
+color 0.000, 0.392, 0.000
+color 0.000, 0.502, 0.000
+color 0.000, 0.502, 0.000
+color 0.196, 0.804, 0.196
+color 0.486, 0.988, 0.000
+color 0.486, 0.988, 0.000
+color 0.678, 1.000, 0.184
+color 0.498, 1.000, 0.831
+alphaStart 1.0
+alphaEnd 0.7
+size 3.0
+mass 1.0
+end
+
+# Left feet of robot
+start
+type Fire center 24 18 -8.5 radius 1 normal 0 -1 0
+distribution uniform
+maxParticles 10000
+minimumLife 30
+maximumLife 40
+minNumGenerated 60
+maxNumGenerated 70
+timeIntervalGeneration 1
+elasticity 0.8
+friction 0.1
+minVel 2
+maxVel 3
+sd 0.05
+forceStrength 0.6
+gravity 0 0 0
+# List color in order of color transitions
+color 0.980 0.980 0.324
+color 1.000 1.000 0.000
+color 1 0.92 0
+color 1.000 0.843 0.000
+color 1.000, 0.549, 0.000
+color 1.000 0.647 0.000
+color 1.000 0.271 0.000
+color 1 0 0
+color 0.545, 0.000, 0.000
+color 0.545, 0.000, 0.000
+alphaStart 1.0
+alphaEnd 0.6
+size 3.0
+mass 1.0
+end
+
+# Right feet of robot
+start
+type Fire center 24 18 -12 radius 1 normal 0 -1 0
+sd 0.05
+forceStrength 0.6
+distribution uniform
+maxParticles 10000
+minimumLife 30
+maximumLife 40
+minNumGenerated 60
+maxNumGenerated 70
+timeIntervalGeneration 1
+elasticity 0.8
+friction 0.1
+minVel 2
+maxVel 3
+gravity 0 0 0
+# List color in order of color transitions
+color 0.980 0.980 0.324
+color 1.000 1.000 0.000
+color 1 0.92 0
+color 1.000 0.843 0.000
+color 1.000, 0.549, 0.000
+color 1.000 0.647 0.000
+color 1.000 0.271 0.000
+color 1 0 0
+color 0.545, 0.000, 0.000
+color 0.545, 0.000, 0.000
+alphaStart 1.0
+alphaEnd 0.6
+size 3.0
+mass 1.0
+end
+
+
+
+################################################################################
+# Water fountain
+start
+type Point pos -10 25 -20
+distribution uniform
+maxParticles 700000
+minimumLife 80
+maximumLife 90
+minNumGenerated 50
+maxNumGenerated 60
+timeIntervalGeneration 1
+elasticity 0.9
+friction 0.1
+minVel 2
+maxVel 4.2
+gravity 0 -16.8 0
+# List color in order of color transitions
+color 1.0 1.0 1.0
+color 0.780, 0.082, 0.522
+alphaStart 1.0
+alphaEnd 1.0
+size 3.0
+mass 1.0
+end
+
+
+start
+type Point pos -10 20 -20
+distribution uniform
+maxParticles 700000
+minimumLife 80
+maximumLife 90
+minNumGenerated 70
+maxNumGenerated 80
+timeIntervalGeneration 1
+elasticity 0.9
+friction 0.1
+minVel 2
+maxVel 4.2
+gravity 0 -9.8 0
+# List color in order of color transitions
+color 1.0 1.0 1.0
+color 1.000, 0.078, 0.576
+alphaStart 0.7
+alphaEnd 1.0
+size 3.0
+mass 1.0
+end
+
+start
+type Point pos -10 10 -20
+distribution uniform
+maxParticles 700000
+minimumLife 80
+maximumLife 90
+minNumGenerated 130
+maxNumGenerated 140
+timeIntervalGeneration 1
+elasticity 0.9
+friction 0.1
+minVel 2
+maxVel 4.2
+gravity 0 -4.8 0
+# List color in order of color transitions
+color 1.0 1.0 1.0
+color 1.000, 0.412, 0.706
+alphaStart 0.7
+alphaEnd 1.0
+size 3.0
+mass 1.0
+end
+
+
+################################################################################
+# Bunch of fire together
+# fire right
+start
+type Fire center 25 1 13 radius 2 normal 0 1 0
+distribution uniform
+maxParticles 30000
+minimumLife 50
+maximumLife 60
+minNumGenerated 90
+maxNumGenerated 100
+timeIntervalGeneration 1
+elasticity 0.8
+friction 0.1
+minVel 2
+maxVel 3
+sd 0.3
+forceStrength 0.3
+gravity 0 0 0
+# List color in order of color transitions
+color 0.980 0.980 0.324
+color 1.000 1.000 0.000
+color 1 0.92 0
+color 1.000 0.843 0.000
+color 1.000, 0.549, 0.000
+color 1.000 0.647 0.000
+color 1.000 0.271 0.000
+color 1 0 0
+color 0.545, 0.000, 0.000
+color 0.545, 0.000, 0.000
+alphaStart 1.0
+alphaEnd 0.6
+size 3.0
+mass 1.0
+end
+
+# fire left
+start
+type Fire center 25 1 16 radius 2 normal 0 1 0
+distribution uniform
+maxParticles 30000
+minimumLife 30
+maximumLife 40
+minNumGenerated 100
+maxNumGenerated 120
+timeIntervalGeneration 1
+elasticity 0.8
+friction 0.1
+minVel 2
+maxVel 3
+sd 0.3
+forceStrength 0.3
+gravity 0 0 0
+# List color in order of color transitions
+color 0.980 0.980 0.324
+color 1.000 1.000 0.000
+color 1 0.92 0
+color 1.000 0.843 0.000
+color 1.000, 0.549, 0.000
+color 1.000 0.647 0.000
+color 1.000 0.271 0.000
+alphaStart 1.0
+alphaEnd 0.6
+size 3.0
+mass 1.0
+end
+
+
+# fire center
+start
+type Fire pos 24 1 15 radius 0.5 normal 0 1 0
+distribution uniform
+maxParticles 30000
+minimumLife 130
+maximumLife 140
+minNumGenerated 30
+maxNumGenerated 40
+timeIntervalGeneration 1
+elasticity 0.8
+friction 0.1
+minVel 2
+maxVel 3
+sd 0.1
+forceStrength 0.3
+gravity 0 0 0
+# List color in order of color transitions
+color 0.980 0.980 0.324
+color 1.000 1.000 0.000
+color 1 0.92 0
+color 1.000 0.843 0.000
+color 1.000, 0.549, 0.000
+color 1.000 0.647 0.000
+color 1.000 0.271 0.000
+color 1 0 0
+color 0.545, 0.000, 0.000
+color 0.545, 0.000, 0.000
+color 0.1, 0.1, 0.1
+color 0.12, 0.12, 0.12
+color 0.13, 0.13, 0.13
+color 0.15 0.15 0.15
+color 0.2 0.2 0.2
+color 0.25 0.25 0.25
+color 0.3 0.3 0.3
+color 0.4 0.4 0.4
+alphaStart 1.0
+alphaEnd 0.4
+size 3.0
+mass 1.0
+end
+
+
