@@ -14,9 +14,9 @@ using namespace std;
 // @brief: Struct vertex. Each vertex contains information about the position,
 //		   normal and texture coordinates.
 struct Vertex {
-	size_t pointIdx{0}; 
-	size_t normalIdx{0};
-	size_t textureIdx{0};
+	int pointIdx{-1}; 
+	int normalIdx{-1};
+	int textureIdx{-1};
 };
 
 class Face {
@@ -32,6 +32,6 @@ public:
 	size_t getNumVertices() { return faceVertices.size(); }
 
 	// Add methods
-	void addVertex(Vertex& vertex);
+	void addVertex(Vertex vertex);
 };
 #endif

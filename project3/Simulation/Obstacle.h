@@ -10,7 +10,7 @@
 class Obstacle {
 public:
 	Obstacle(ifstream& inputFileStream);
-	Collision checkCollision(State& oldState, State& newState) const;
+	Collision checkCollision(State oldState, State newState);
 	static void parseInObstacles(string inputFile,
 		vector<shared_ptr<Obstacle>>& obstacles);
 	void draw();

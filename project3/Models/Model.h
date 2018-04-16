@@ -13,8 +13,6 @@
 #include <vector>
 #include <stdlib.h>
 #include <string>
-#define _USE_MATH_DEFINES
-#include <math.h>
 // GLM
 #include "../Utilities/glm/glm.hpp"
 #define GLM_ENABLE_EXPERIMENTAL 
@@ -35,6 +33,7 @@
 #include "Face.h"
 
 using namespace std;
+#define PI 3.14159265
 
 // Different types of style
 enum Style{
@@ -62,11 +61,12 @@ private:
 	void getTokens(string input);
 	void storeValue(string input, vector<glm::vec3>& vec);
 	void readFace(string input);
-	void drawFace(shared_ptr<Face> face) const;
+	void drawFace(shared_ptr<Face> face);
 	void changeOrientation();
 
 public:
 
+	Model(Model& model);
 	Model(string inputFile, string _name, glm::vec3 _pos, glm::vec3 _orientation, glm::vec3  scale, glm::vec3 _color);
 	void draw();
 	static void parseInModels(string inputFile, vector<shared_ptr<Model>>& models);

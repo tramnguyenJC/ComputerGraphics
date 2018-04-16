@@ -156,7 +156,8 @@ ParticleGenerator::fireForce(shared_ptr<Particle> particle){
   // This gives a vector that has non-normal components of velocity, and
   // the normal component is now 0
   glm::vec3 componentVel = vel - circle.normal*(glm::dot(vec, vel));
- 
+  // Find the angle between them to find if particle is heading outside the 
+  // fire's center
   float ratio = (float)(particle->getTimeAlive())/ particle->getLongevity();
   ratio = forceStrength*ratio;
   force += dir*(ratio);

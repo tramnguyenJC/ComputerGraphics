@@ -21,9 +21,9 @@ public:
 	void draw();
 	void generateScene();
 	void update();
-	const vector<shared_ptr<Repeller>>& getRepellers(){ return repellers; }
-	const vector<shared_ptr<Attractor>>& getAttractors(){ return attractors; }
-	const vector<shared_ptr<ParticleGenerator>>& getGenerators() { return generators; }
+	vector<shared_ptr<Repeller>>& getRepellers(){ return repellers; }
+	vector<shared_ptr<Attractor>>& getAttractors(){ return attractors; }
+	vector<shared_ptr<ParticleGenerator>>& getGenerators() { return generators; }
 	Camera& getCamera() {return camera;}
 
 private:

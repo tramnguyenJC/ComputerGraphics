@@ -83,7 +83,7 @@ void Obstacle::parseInObstacles(string inputFile, vector<shared_ptr<Obstacle>>& 
 // @return null if no collision happened
 // 		   a Collision object otherwise
 Collision
-Obstacle::checkCollision(State& oldState, State& newState) const{
+Obstacle::checkCollision(State oldState, State newState){
 	Collision c;
   float oValue;
   float nValue;

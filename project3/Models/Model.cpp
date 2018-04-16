@@ -221,15 +221,15 @@ void Model::readFace(string input){
 //////////////////////////////////////////////////////////////////////////////
 // @brief: Draw face
 // @param face Face to be drawn
-void Model::drawFace(shared_ptr<Face> face) const{
+void Model::drawFace(shared_ptr<Face> face){
 	vector<Vertex> vertices = face->getVertices();
 	for (auto& vertex : vertices){
-		if(vertex.normalIdx != 0){
+		if(vertex.normalIdx != -1){
 			glm::vec3 normal = normals[vertex.normalIdx - 1];
 			glNormal3f(normal.x, normal.y, normal.z);
 		}
 		// If the OBJ line provides textures
-		if(vertex.textureIdx  != 0){
+		if(vertex.textureIdx  != -1){
 			glm::vec3 tex = textures[vertex.textureIdx - 1];
 			glTexCoord2f(tex.x, tex.y);
 		}
@@ -291,7 +291,7 @@ void Model::changeOrientation(){
 	// Note that argument to glm::orientedAngle need to be normalized
 	float angle = glm::orientedAngle(glm::vec3(0,0,1), vec1, glm::vec3(0,1,0));
 	// convert angle from radians to degrees then rotate model with reference to y-axis
-  	glRotatef(angle/M_PI * 180, 0, 1, 0);
+  	glRotatef(angle/PI * 180, 0, 1, 0);
 
   	// Change the y-orientation of model
   	glm::vec3 vec2(0, orientation.y, 1);
@@ -299,5 +299,5 @@ void Model::changeOrientation(){
   	// the same
   	float angle2 = glm::orientedAngle(glm::vec3(0,0,1),
   		glm::normalize(glm::vec3(0,orientation.y,1)), glm::vec3(1,0,0));
-   	glRotatef(angle2/M_PI * 180, 1, 0, 0); 
+   	glRotatef(angle2/PI * 180, 1, 0, 0); 
 }

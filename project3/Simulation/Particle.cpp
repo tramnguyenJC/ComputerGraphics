@@ -38,9 +38,9 @@ Particle::draw(){
 //////////////////////////////////////////////////////////////////////////////
 // @brief: Resolve the given collision
 // @param c given collision
-void Particle::resolveCollision(Collision& c){
+void Particle::resolveCollision(Collision c){
 	// Dot equation a · b   =   a.x*b.x + a.y*b.y + a.z*b.z
-	// so for example, if c.n = (0,1,0), then c.n dot vel gives vel.y,and 
+	// so for example, if c.n = (0,1,0), then c.n dot vel gives vel.z, and 
 	// vn = (0, vel.y, 0);
 	glm::vec3 vn = c.n*(glm::dot(c.n, state.vel));
 	// vt = (vel.x, 0, vel.z)
@@ -65,6 +65,12 @@ void Particle::resolveCollision(Collision& c){
 // 		   transitions and the time particle has been alive
 void
 Particle::updateColor(){
+	// n colors -> (n-1) transitions
+	// For example, 1.0/3 = 1/3.
+	// 0 < x < 1/3 -> colors[0] -> colors[1]; (i*(1.0/size) < f < (i+1)*(1/size))
+    // 1/3 < x < 2/3 -> colors[1] -> colors[2] (i*(1.0/size) < f < (i+1)*(1/size))
+    // 2/3 < x < 1 -> colors[2] -> colors[3] (i*(1.0/size) < f < (i+1)*(1/size))
+    //  
 	float fractionAlive = (float)(timeAlive)/(float)longevity;
 	glm::vec3 colorStart;
 	glm::vec3 colorEnd;
@@ -90,7 +96,7 @@ Particle::updateColor(){
 // @param s: the current state of particle
 // @param t: timestep value
 void
-Particle::update(glm::vec3 force, State& s, float t){
+Particle::update(glm::vec3 force, State s, float t){
 	timeAlive++;
 
 	updateColor();
